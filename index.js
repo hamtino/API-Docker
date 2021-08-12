@@ -23,3 +23,8 @@ const server = new Hapi.Server(
     port
   }
 );
+
+// declaramos la funcion tipo flecha principal de la aplicacion API
+(async () => {
+
+})();
