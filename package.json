@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx pm2-docker index.js"
+    "start": "npx pm2-docker index.js",
+    "test": "npx pm2-docker index.js"
   },
   "keywords": [],
   "author": "Juan Jaminton Yate",
