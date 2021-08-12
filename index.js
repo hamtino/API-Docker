@@ -24,6 +24,13 @@ const server = new Hapi.Server(
     }
 );
 
+// agregamos un mensaje de error si algo slae mal
+const failAction = async (request, h, err) => {
+  console.error('err', err)
+  throw err;
+}
+
+
 // declaramos la funcion tipo flecha principal de la aplicacion API
 (async () => {
 

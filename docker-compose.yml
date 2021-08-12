@@ -1,7 +1,7 @@
 version: '3'
 services:
-  node-js:
-    container_name: node-js
+  api-personas-postgres:
+    container_name: api-personas-postgres
     build: .
     ports:
       - 3000:3000

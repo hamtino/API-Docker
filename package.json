@@ -1,26 +1,24 @@
 {
-  "name": "api-docker",
+  "fullname": "docker-registry",
   "version": "1.0.0",
-  "description": "api implementada con node y postgresql para proceso de seleccion",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "sh"
+    "start": "npx pm2-docker index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "api-docker"
-  },
+  "keywords": [],
   "author": "Juan Jaminton Yate",
   "license": "ISC",
   "dependencies": {
-    "hapi": "^18.1.0",
-    "hapi-swagger": "^14.2.4",
-    "inert": "^5.1.3",
-    "joi": "^17.4.2",
-    "pg": "^8.7.1",
-    "pg-hstore": "^2.3.4",
-    "pm2": "^5.1.0",
-    "sequelize": "^6.6.5",
-    "vision": "^5.4.4"
-  }
+    "hapi": "18.1.0",
+    "hapi-swagger": "9.4.2",
+    "inert": "5.1.3",
+    "joi": "14.3.1",
+    "pg": "7.10.0",
+    "pg-hstore": "2.3.2",
+    "pm2": "3.5.0",
+    "sequelize": "5.6.1",
+    "vision": "5.4.4"
+  },
+  "devDependencies": {}
 }
