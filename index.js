@@ -71,6 +71,8 @@ const server = new Hapi.Server(
         },
     ]);
 
+    // creamos las rutas de acceso a la API
+    server.route([
 
-
+    ]);
 })();
