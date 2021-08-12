@@ -108,28 +108,57 @@ const server = new Hapi.Server(
 
         // metodo para crear registros
         {
-          method: "POST",
-          path: "/personas",
-          config: {
-            handler: (req) => {
-              const { payload } = req;
-              return persona.create(payload);
-            },
+            method: "POST",
+            path: "/personas",
+            config: {
+                handler: (req) => {
+                    const { payload } = req;
+                    return persona.create(payload);
+                },
 
-            // informacion guardada en la documentacion para el ususario
-            description: "Registrar una persona",
-            notes: "crear una persona en la base de datos",
-            tags: ["api"],
+                // informacion guardada en la documentacion para el ususario
+                description: "Registrar una persona",
+                notes: "crear una persona en la base de datos",
+                tags: ["api"],
 
-            // validamos que no lleguen campos vacios
-            validate: {
-              failAction,
-              payload: {
-                fullname: Joi.string().required(),
-                birth: Joi.string().required(),
-              },
+                // validamos que no lleguen campos vacios
+                validate: {
+                    failAction,
+                    payload: {
+                        fullname: Joi.string().required(),
+                        birth: Joi.string().required(),
+                    },
+                },
             },
-          },
+        },
+
+        // metodo para actualizar registros
+        {
+            method: "PUT",
+            path: "/personas/{id}",
+            config: {
+                handler: (req) => {
+                    const { payload } = req;
+                    return persona.update(payload, { where: { id: req.params.id } });
+                },
+
+                // informacion guardada en la documentacion para el ususario
+                description: "Actualizar a persona",
+                notes: "actualizar una persona en la base de datos",
+                tags: ["api"],
+
+                // validamos que no lleguen campos vacios
+                validate: {
+                    failAction,
+                    params: {
+                        id: Joi.string().required(),
+                    },
+                    payload: {
+                        fullname: Joi.string(),
+                        birth: Joi.string(),
+                    },
+                },
+            },
         }
     ]);
 })();
