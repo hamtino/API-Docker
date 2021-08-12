@@ -54,7 +54,22 @@ const server = new Hapi.Server(
         fullname: Sequelize.STRING,
         birth: Sequelize.DATE,
     });
+    await persona.sync({ force: true });
 
+    // iniciamos el servicio de documentacion para el usuario de la API
+    await server.register([
+        Inert,
+        Vision,
+        {
+            plugin: HapiSwagger,
+            options: {
+                info: {
+                    title: "API Rest nodejs y postgresql prueba DIGITAL BdB",
+                    version: "1.0",
+                },
+            }
+        },
+    ]);
 
 
 
