@@ -35,11 +35,11 @@ const failAction = async (request, h, err) => {
 (async () => {
 
     // validamos datos correctos de postgresql
-    if (!process.env.POSTGRES_HOST) {
-        throw Error(
-            "process.env.POSTGRES_HOST debe ser: user:pass@ipService:port ",
-        );
-    }
+    //if (!process.env.POSTGRES_HOST) {
+    //    throw Error(
+    //        "process.env.POSTGRES_HOST debe ser: user:pass@ipService:port ",
+    //    );
+    //}
 
     // Configuramos sequelize para que se conecte a postgresql
     const sequelize = new Sequelize(
