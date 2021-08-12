@@ -26,6 +26,7 @@ const server = new Hapi.Server(
 
 // declaramos la funcion tipo flecha principal de la aplicacion API
 (async () => {
+
     // validamos datos correctos de postgresql
     if (!process.env.POSTGRES_HOST) {
         throw Error(
@@ -43,5 +44,18 @@ const server = new Hapi.Server(
             },
         }
     );
+
+    // validamos la conexion de sequelize con postgresql
+    await sequelize.authenticate();
+    console.log("base de datos postgres iniciada con exito");
+
+    // definimos el modelo que tendra los datos de una persona
+    const persona = sequelize.define("persona", {
+        fullname: Sequelize.STRING,
+        birth: Sequelize.DATE,
+    });
+
+
+
 
 })();
