@@ -15,3 +15,11 @@ const Vision = require("vision");
 
 // Un plugin generador de interfaz de usuario de documentación swagger para hapi
 const HapiSwagger = require("hapi-swagger");
+
+// puerto de funcionamiento aplicacion node.js e inicializacion de hapi.js
+const port = process.env.PORT || 3000;
+const server = new Hapi.Server(
+  {
+    port
+  }
+);
