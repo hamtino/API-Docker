@@ -159,6 +159,34 @@ const server = new Hapi.Server(
                     },
                 },
             },
+        },
+
+        // metodo para eliminar registros
+        {
+            method: "DELETE",
+            path: "/personas/{id}",
+            config: {
+                handler: (req) => {
+                    return persona.destroy({ where: { id: req.params.id } });
+                },
+
+                // informacion guardada en la documentacion para el ususario
+                description: "Borrar una persona",
+                notes: "elimina el registro de una persona en la base de datos",
+                tags: ["api"],
+
+                // validamos que no lleguen campos vacios
+                validate: {
+                    failAction,
+                    params: {
+                        id: Joi.string().required(),
+                    },
+                },
+            },
         }
     ]);
+
+    // si todo sale bien muestra mensaje por consola
+    await server.start();
+    console.log("servidor corriendo en el puerto: ", server.info.port);
 })();
