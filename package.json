@@ -11,5 +11,16 @@
     "url": "api-docker"
   },
   "author": "Juan Jaminton Yate",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^18.1.0",
+    "hapi-swagger": "^14.2.4",
+    "inert": "^5.1.3",
+    "joi": "^17.4.2",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "pm2": "^5.1.0",
+    "sequelize": "^6.6.5",
+    "vision": "^5.4.4"
+  }
 }
