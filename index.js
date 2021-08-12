@@ -104,6 +104,32 @@ const server = new Hapi.Server(
                 notes: "persona de la base de datos",
                 tags: ["api"],
             },
+        },
+
+        // metodo para crear registros
+        {
+          method: "POST",
+          path: "/personas",
+          config: {
+            handler: (req) => {
+              const { payload } = req;
+              return persona.create(payload);
+            },
+
+            // informacion guardada en la documentacion para el ususario
+            description: "Registrar una persona",
+            notes: "crear una persona en la base de datos",
+            tags: ["api"],
+
+            // validamos que no lleguen campos vacios
+            validate: {
+              failAction,
+              payload: {
+                fullname: Joi.string().required(),
+                birth: Joi.string().required(),
+              },
+            },
+          },
         }
     ]);
 })();
