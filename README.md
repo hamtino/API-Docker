@@ -6,4 +6,4 @@
 
 ### Ver la documentacion de usuario de la API
 
-* Go to swagger page - `localhost:3000/documentation`
+* URL- `localhost:3000/documentation`
