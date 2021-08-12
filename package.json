@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx pm2-docker index.js",
-    "test": "npm start"
+    "test": "docker-compose up"
   },
   "keywords": [],
   "author": "Juan Jaminton Yate",
