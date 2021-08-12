@@ -73,7 +73,7 @@ const server = new Hapi.Server(
 
     // creamos las rutas de acceso a la API
     server.route([
-        
+
         // metodo de consultar todos los registros
         {
             method: "GET",
@@ -86,6 +86,22 @@ const server = new Hapi.Server(
             config: {
                 description: "Lista de personas",
                 notes: "personas registradas en la base de datos",
+                tags: ["api"],
+            },
+        },
+
+        // metodo de consultar registros por Id
+        {
+            method: "GET",
+            path: "/personas/{id}",
+            handler: (req) => {
+                return persona.findAll({ where: { id: req.params.id } });
+            },
+
+            // informacion guardada en la documentacion para el ususario
+            config: {
+                description: "Consultar persona por Id",
+                notes: "persona de la base de datos",
                 tags: ["api"],
             },
         }
