@@ -1,0 +1,15 @@
+{
+  "name": "api-docker",
+  "version": "1.0.0",
+  "description": "api implementada con node y postgresql para proceso de seleccion",
+  "main": "index.js",
+  "scripts": {
+    "test": "sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "api-docker"
+  },
+  "author": "Juan Jaminton Yate",
+  "license": "ISC"
+}
