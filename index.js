@@ -116,6 +116,25 @@ const failAction = async (request, h, err) => {
             },
         },
 
+        // metodo de consultar registros por fullname para validaciones
+        {
+            method: "GET",
+            path: "/personas/validacion/{id}",
+            handler: (req) => {
+            
+                return persona.findAll({ where: { fullname: req.params.id } });
+
+                
+            },
+
+            // informacion guardada en la documentacion para el ususario
+            config: {
+                description: "Consultar persona por Id",
+                notes: "persona de la base de datos",
+                tags: ["api"],
+            },
+        },
+
         // metodo para crear registros
         {
             method: "POST",
